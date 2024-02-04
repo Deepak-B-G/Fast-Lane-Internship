@@ -11,26 +11,57 @@ Predict traffic flow patterns for optimal transportation in smart cities.
 Metro Interstate Traffic Volume from UCI ML Repository.
 
 ### Project Overview
-1. **Data Collection and Exploration**
-   - Collected historical traffic data from sensors, cameras, etc.
-   - Explored the dataset for structure, variables, and patterns using statistical and visual analysis.
 
-2. **Data Preprocessing**
-   - Handled missing data through imputation and removal.
-   - Identified and addressed outliers affecting the accuracy of predictions.
-   - Converted categorical variables to numerical formats for modeling purposes.
-   - Normalized numerical features to ensure consistent scale across variables.
+1.  **Data Preprocessing:**
 
-3. **Feature Engineering**
-   - Extracted relevant features such as time of day, day of the week, and weather conditions.
-   - Created lag features to capture historical traffic patterns.
+- Imported necessary libraries and loaded the dataset using pandas.
+- Checked for unique values in categorical variables (`holiday`, `weather_main`, `weather_description`).
+- Checked for missing values in the dataset.
+- Applied one-hot encoding to categorical variables and Min-Max scaling to numerical features (`temp`, `rain_1h`, `snow_1h`, `clouds_all`).
+- Converted the 'date_time' column to datetime format and extracted time-related features (`hour`, `day_of_week`, `month`).
+- Created lag features for 'traffic_volume' to capture temporal patterns.
 
-4. **Exploratory Data Analysis (EDA)**
-   - Visualized traffic data using charts and graphs to identify trends, patterns, and correlations.
-   - Analyzed traffic flow at different times and days to uncover insights.
+2. **Exploratory Data Analysis (EDA):**
 
-5. **Conclusion**
-   - Summarized key findings and insights from the analysis, providing actionable recommendations for optimizing traffic flow in smart cities.
+- Visualized the correlation matrix to understand relationships between numeric features.
+- Plotted a histogram to show the distribution of traffic volume.
+- Displayed a line plot to visualize how traffic volume changes over time.
+- Utilized bar plots and boxplots to analyze the impact of weather categories and day of the week on traffic volume.
+
+3.  **Feature Engineering:**
+
+- Transformed the 'holiday' column into a binary numeric variable.
+- Considered only numeric columns for calculating correlation.
+- Generated lag features for the past 3 hours to capture temporal dependencies.
+
+4.  **Machine Learning Model:**
+
+- Selected relevant features (`temp`, `rain_1h`, `snow_1h`, `clouds_all`, `hour`, `day_of_week`, `month`) for predicting traffic volume.
+- Split the dataset into training and testing sets.
+- Employed a Random Forest Regressor model for traffic volume prediction.
+- Evaluated the model performance using Mean Absolute Error (MAE).
+- Visualized feature importance to understand the contribution of each feature to the model.
+
+5. **Model Performance:**
+
+The Random Forest Regressor model achieved a Mean Absolute Error (MAE) of approximately 197.44 on the test set, indicating the average absolute difference between predicted and actual traffic volumes.
+
+6. **Feature Importance Analysis:**
+
+The feature importance analysis reveals the following contributions to the model:
+
+- Temperature (`temp`): 40.37%
+- Month (`month`): 25.18%
+- Day of the week (`day_of_week`): 18.86%
+- Cloud cover (`clouds_all`): 14.70%
+- Rainfall (`rain_1h`): 0.89%
+- Snowfall (`snow_1h`): Negligible
+- Time of day (`hour`): Negligible
+
+## Conclusion:
+
+The Random Forest Regressor model achieved a Mean Absolute Error (MAE) of approximately 197.44 on the test set, reflecting the average absolute difference between predicted and actual traffic volumes. Notably, temperature (temp) emerged as the most influential factor, contributing 40.37% to the model's decision-making. The month of the year (month) closely followed, accounting for around 25.18% of predictive power. Day of the week (day_of_week) and cloud cover (clouds_all) also played significant roles, contributing 18.86% and 14.70%, respectively. Rainfall (rain_1h) had a comparatively smaller impact (0.89%), while snowfall (snow_1h) and time of day (hour) showed negligible importance. In summary, the model underscores the importance of temperature and temporal factors in predicting traffic volume, aligning with expectations of weather and seasonal influences. While the model shows promise in forecasting, further refinement through hyperparameter tuning or considering additional features could enhance accuracy and generalization.
+
 
 ## Project 2: Stock Price Analysis
 
