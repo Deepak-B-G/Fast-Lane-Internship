@@ -1,6 +1,6 @@
-# Fast Lane Career Data Science Projects
+# Fast Lane Career Data Analyst Projects
 
-Welcome to the Fast Lane Career Data Science Projects repository. In this repository, you will find three distinct data science projects focusing on Traffic Flow Prediction, Stock Price Analysis, and Healthcare Data Analysis for Diabetes Prediction.
+Welcome to the Fast Lane Career Data Analyst Projects repository. In this repository, you will find three distinct data science projects focusing on Traffic Flow Prediction, Stock Price Analysis, and Healthcare Data Analysis for Diabetes Prediction.
 
 ## Project 1: Traffic Flow Prediction for Smart Cities
 
